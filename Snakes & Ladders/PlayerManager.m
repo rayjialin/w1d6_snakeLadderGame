@@ -32,17 +32,28 @@
     [_players[_currentIndex] roll];
 }
 
--(void)output{
+-(NSString *)output{
     Player *currentPlayer = [_players objectAtIndex:_currentIndex];
-    NSLog(@"\n%@\n\n%@",currentPlayer.name,[[_players objectAtIndex:_currentIndex] outputString]);
+    NSString *output = [NSString stringWithFormat:@"\n%@\n%@", currentPlayer.name, [[_players objectAtIndex:_currentIndex] outputString]];
     
     if (currentPlayer.currentSquare < 100){
-    _currentIndex++;
+        _currentIndex++;
     }
+    
+    return output;
 }
 
 -(Player *)currentPlayer{
     _currentIndex %= _players.count;
     return [_players objectAtIndex:_currentIndex];
+}
+
+-(NSString *)scoreBoard{
+    NSMutableString *scores = [NSMutableString stringWithFormat:@"Scores - "];
+    for (Player *player in _players){
+        [scores appendFormat:@"%@ ", [player scoreBoard]];
+    }
+    
+    return scores;
 }
 @end

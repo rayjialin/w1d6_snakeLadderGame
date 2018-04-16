@@ -18,6 +18,7 @@
 
 -(void)createPlayers:(NSInteger)numberOfPlayers;
 -(void)roll;
--(void)output;
+-(NSString *)output;
 -(Player *)currentPlayer;
+-(NSString *)scoreBoard;
 @end

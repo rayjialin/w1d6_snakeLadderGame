@@ -61,4 +61,8 @@
     }
 
 }
+
+-(NSString *)scoreBoard{
+    return [NSString stringWithFormat:@"%@: %li", _name, _currentSquare];
+}
 @end

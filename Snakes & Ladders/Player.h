@@ -17,4 +17,5 @@
 @property NSString *name;
 
 -(void)roll;
+-(NSString *)scoreBoard;
 @end

@@ -15,6 +15,7 @@
     self = [super init];
     if (self) {
         _gameOver = NO;
+        _name = [NSString new];
         _outputString = [NSMutableString new];
         _currentSquare = 0;
         _gameLogic = @{
@@ -34,7 +35,7 @@
     }
     return self;
 }
--(NSString *)roll{
+-(void)roll{
     NSInteger diceValue = arc4random_uniform(6)+1;
     _currentSquare += diceValue;
     
@@ -58,7 +59,6 @@
     if (_currentSquare  >= 100){
         _gameOver = YES;
     }
-    
-    return _outputString;
+
 }
 @end
